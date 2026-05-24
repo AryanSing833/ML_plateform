@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:role/my-test-project-ec2-role"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::my-test-project-artifacts",
+                "arn:aws:s3:::my-test-project-artifacts/*"
+            ]
+        }
+    ]
+}

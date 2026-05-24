@@ -1,0 +1,17 @@
+{
+  "framework": "pytorch",
+  "task_type": "classification",
+  "experiment_tracking": "mlflow",
+  "orchestration": "none",
+  "deployment": "kubernetes",
+  "monitoring": "none",
+  "ci_cd": "jenkins",
+  "cloud_provider": "aws",
+  "cloud_service": "ec2-s3",
+  "project_name": "my-test-project",
+  "author_name": "ML Engineer",
+  "description": "Docker + Kubernetes + AWS EC2/S3 + Jenkins CI/CD",
+  "generated_at": "C:\\Users\\aryan\\Downloads\\mlops-project-generator-master\\mlops-project-generator-master",
+  "project_path": "C:\\Users\\aryan\\Downloads\\mlops-project-generator-master\\mlops-project-generator-master\\my-test-project",
+  "generator_version": "1.0.7"
+}

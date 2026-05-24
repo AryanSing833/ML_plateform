@@ -1,0 +1,60 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Classification specific
+scikit-learn>=1.3.0
+
+# MLflow
+mlflow>=2.5.0
+
+
+
+
+# Development dependencies
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+isort>=5.12.0
+flake8>=6.0.0
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Classification specific
+scikit-learn>=1.3.0
+
+# MLflow
+mlflow>=2.5.0
+
+
+
+
+# Development dependencies
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+isort>=5.12.0
+flake8>=6.0.0
+mypy>=1.4.0
+
+# Jupyter notebooks
+jupyter>=1.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0

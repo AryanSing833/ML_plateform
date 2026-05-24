@@ -1,0 +1,77 @@
+# Configuration file for my-test-project
+
+# Project settings
+project:
+  name: "my-test-project"
+  author: "ML Engineer"
+  version: "0.1.0"
+  description: "Pytorch Classification project"
+
+# Data settings
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+  external_data_path: "data/external"
+  test_size: 0.2
+  random_state: 42
+
+# Model settings
+model:
+  type: "NeuralNetwork"
+  num_classes: 2
+  hidden_layers: [128, 64, 32]
+  dropout: 0.2
+
+# Training settings
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  epochs: 100
+  optimizer: "adam"
+  scheduler: "step"
+  early_stopping: true
+  patience: 10
+  verbose: true
+
+# Evaluation settings
+evaluation:
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+    - "roc_auc"
+  save_predictions: true
+  plot_results: true
+
+# Experiment tracking
+experiment_tracking:
+  tool: "mlflow"
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "my-test-project"
+
+# Deployment settings
+deployment:
+  method: "kubernetes"
+  namespace: "default"
+  replicas: 3
+
+# Monitoring settings
+monitoring:
+  tool: "none"
+
+# Logging settings
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/my-test-project.log"
+  console: true
+
+# Paths
+paths:
+  data_dir: "data"
+  models_dir: "models"
+  notebooks_dir: "notebooks"
+  scripts_dir: "scripts"
+  logs_dir: "logs"
+  configs_dir: "configs"

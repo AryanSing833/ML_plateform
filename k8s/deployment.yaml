@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-test-project-deployment
+  namespace: my-test-project-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-test-project
+  template:
+    metadata:
+      labels:
+        app: my-test-project
+    spec:
+      containers:
+      - name: my-test-project-container
+        image: my-test-project:latest
+        ports:
+        - containerPort: 8000
+        resources:
+          limits:
+            cpu: "1"
+            memory: "2Gi"
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 10
