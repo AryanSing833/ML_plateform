@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: my-test-project-container
-        image: my-test-project:latest
+        image: mlops-test:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
         resources:
@@ -27,7 +28,7 @@ spec:
             memory: "1Gi"
         readinessProbe:
           httpGet:
-            path: /health
+            path: /api/health
             port: 8000
           initialDelaySeconds: 15
           periodSeconds: 10
