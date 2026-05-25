@@ -1,4 +1,4 @@
-# 🚀 NeuralDoc — AI Document Intelligence Platform
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/b5bd9b1d-24ad-4081-9107-28443baa53ef" /># 🚀 NeuralDoc — AI Document Intelligence Platform
 
 <div align="center">
 
@@ -49,6 +49,9 @@ Upload PDFs • Chat with Documents • RAG Search • Groq LLM • CI/CD to AWS
 The entire system is fully containerized using Docker and follows a production-style MLOps workflow.
 
 ---
+
+<img width="100%" alt="NeuralDoc Architecture" src="https://github.com/user-attachments/assets/b5bd9b1d-24ad-4081-9107-28443baa53ef" />
+
 
 # 🏗️ System Architecture
 
