@@ -50,7 +50,10 @@ The entire system is fully containerized using Docker and follows a production-s
 
 ---
 
+
+---
 <img width="100%" alt="NeuralDoc Architecture" src="https://github.com/user-attachments/assets/b5bd9b1d-24ad-4081-9107-28443baa53ef" />
+---
 
 
 # 🏗️ System Architecture
