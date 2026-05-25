@@ -431,18 +431,6 @@ docker run -d \
 🤖 Machine Learning & MLOps Developer  
 🚀 AI Infrastructure Enthusiast
 
-### GitHub
-
-https://github.com/AryanSing833
-
----
-
-# ⭐ Repository
-
-## 🔗 GitHub Repo
-
-https://github.com/AryanSing833/ML_plateform
-
 ---
 
 # 🚀 NeuralDoc — From AI Models to Production Deployment
