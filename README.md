@@ -1,5 +1,3 @@
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/b5bd9b1d-24ad-4081-9107-28443baa53ef" /># 🚀 NeuralDoc — AI Document Intelligence Platform
-
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="70"/>
