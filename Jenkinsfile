@@ -1,51 +1,54 @@
 pipeline {
     agent any
-    
+
     environment {
-        DOCKER_IMAGE = "my-test-project"
-        DOCKER_TAG = "${env.BUILD_NUMBER}"
-        KUBECONFIG = credentials('kubeconfig-prod')
+        IMAGE_NAME = "aryansingh833/aryansingh833:latest"
+        EC2_IP = "13.62.240.163"
     }
-    
+
     stages {
-        stage('Lint & Test') {
+
+        stage('Checkout') {
             steps {
-                sh 'pip install -r requirements.txt'
-                sh 'make lint || echo "Linting skipped"'
-                sh 'make test || echo "Testing skipped"'
+                checkout scm
             }
         }
-        
+
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .'
-                sh 'docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest'
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
-        
-        stage('Push to Registry') {
+
+        stage('Push Docker Image') {
             steps {
-                // Replace with your registry URL
-                echo "Would push to registry: docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+
+                    sh '''
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                    docker push $IMAGE_NAME
+                    '''
+                }
             }
         }
-        
-        stage('Deploy to Kubernetes') {
-            when {
-                branch 'main'
-            }
+
+        stage('Deploy to EC2') {
             steps {
-                sh 'kubectl apply -f k8s/namespace.yaml'
-                sh 'kubectl apply -f k8s/configmap.yaml'
-                sh 'kubectl set image deployment/my-test-project-deployment my-test-project-container=${DOCKER_IMAGE}:${DOCKER_TAG} -n my-test-project-ns'
-                sh 'kubectl apply -f k8s/'
+                sshagent(credentials: ['ec2-ssh-key']) {
+                    sh '''
+                    ssh -o StrictHostKeyChecking=no ubuntu@$EC2_IP "
+                    docker pull $IMAGE_NAME &&
+                    docker stop rag-app || true &&
+                    docker rm rag-app || true &&
+                    docker run -d --name rag-app --env-file .env -p 80:8000 $IMAGE_NAME
+                    "
+                    '''
+                }
             }
-        }
-    }
-    
-    post {
-        always {
-            cleanWs()
         }
     }
 }
